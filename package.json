@@ -1,0 +1,32 @@
+{
+  "name": "bibliotek",
+  "version": "1.0.0",
+  "description": "",
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npx parcel src/index.html",
+    "build": "parcel build src/index.html --public-url /bibliotek/",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arsenij-vdovichenko/bibliotek.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arsenij-vdovichenko/bibliotek/issues"
+  },
+  "homepage": "https://github.com/arsenij-vdovichenko/bibliotek#readme",
+  "devDependencies": {
+    "parcel": "^2.16.4"
+  },
+  "dependencies": {
+    "basiclightbox": "^5.0.4",
+    "chart.js": "^4.5.1",
+    "gh-pages": "^6.3.0"
+  }
+}
