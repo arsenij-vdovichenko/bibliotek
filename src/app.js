@@ -1,4 +1,4 @@
-import { success } from '@pnotify/core';
+
 import Chart from 'chart.js';
 import Chart from 'chart.js/auto';
 const graphRef = document.querySelector(".graphic")
@@ -142,14 +142,14 @@ new Chart(graphRef, config)
 //         </div>
 // `)
 
-btnRef.addEventListener("click", ()=>{
-    instance.show()
-})
+// btnRef.addEventListener("click", ()=>{
+//     instance.show()
+// })
 
 
-window.addEventListener("keydown", ()=>{
-    instance.close()
-})
+// window.addEventListener("keydown", ()=>{
+//     instance.close()
+// })
 
 // Напиши гру "Натисни правильну клавішу", використовуючи події keydown та keypress.
 // Створити елементи для відображення повідомлення про стан гри та поточної клавіші, яку потрібно натиснути.
@@ -161,7 +161,11 @@ window.addEventListener("keydown", ()=>{
 // Створити обробник події keypress, що запобігає дії за замовчуванням для уникнення несподіваного поведінки сторінки під час гри.
 // Додати кнопку "Нова гра", що оновлює гру з новим поточним ключем та повідомленням, використовуючи бібліотеку pnotify
 
-
+import {success, error  } from '@pnotify/core/dist/PNotify.js';
+import * as PNotifyMobile from '@pnotify/mobile/dist/PNotifyMobile.js';
+import '@pnotify/mobile/dist/PNotifyMobile.css';
+import "@pnotify/core/dist/PNotify.css";
+import '@pnotify/core/dist/BrightTheme.css';
 const divRef = document.querySelector(".game")
 const keys = ["a",
     "d",
@@ -179,23 +183,31 @@ const keys = ["a",
     "v",
     "c",
     "z",]
-let currentkeyIndex = Math.floor((Math.random() * (keys.length -1 - 1) +1)) 
+let currentkeyIndex = Math.floor((Math.random() * (keys.length-1 -1) +1)) 
 divRef.textContent = keys[currentkeyIndex]
+
+
 
 window.addEventListener("keydown", (event)=>{
     if(event.key === divRef.textContent) {
+        
+        
         success({
             title: "Succces",
-            text: "правильно"
+            text: "правильно",
+            delay: 500
         })
-    currentkeyIndex = Math.floor((Math.random() * (keys.length -1 - 1) +1)) 
+    currentkeyIndex = Math.floor((Math.random() * (keys.length-1 - 1) +1)) 
     divRef.textContent=  keys[currentkeyIndex]
-
-     } else({
-        title: "no",
-        text: "неправильно",
-        delay: 400
-    })
+        
+        
+     } else{
+        error({
+  title: 'Oh No!',
+  text: 'Something terrible happened.',
+  delay: 500
+});
+     }
     
     
 })

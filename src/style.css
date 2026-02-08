@@ -9,4 +9,9 @@
     height: 300px;
     margin: 0 auto;
     background-color: aqua;
+    font-size: 140px;
+    color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
